@@ -1,19 +1,18 @@
 <?php
 /**
- * Client
+ * ResponseException
  *
  * @copyright Leaf Group, Ltd. All Rights Reserved.
  */
 declare(strict_types=1);
 
-namespace Affirm\Api;
+namespace SaatchiArt\Affirm\Api;
 
 /**
- * Interact with the affirm api.
+ * When an affirm response is bad.
  *
  * @author Michael Funk <mike.funk@leafgroup.com>
  */
-class Client
+class ResponseException extends \RuntimeException
 {
-
 }

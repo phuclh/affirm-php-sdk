@@ -1,0 +1,37 @@
+<project name="affirm-php-sdk" default="all">
+  <target name="lint" description="Syntax check">
+    <phplint>
+      <fileset dir=".">
+        <include name="src/**/*.php"/>
+      </fileset>
+    </phplint>
+  </target>
+  <target name="phpcs" description="php code sniffer">
+    <exec logoutput="true" checkreturn="true" executable="./vendor/bin/phpcs">
+      <arg value="."/>
+      <arg value="--extensions=php"/>
+      <arg value="--standard=phpcs.xml"/>
+      <arg value="--ignore=*/tests/*,*/vendor/*"/>
+    </exec>
+  </target>
+  <target name="phpmd" description="php mess detector">
+    <exec logoutput="true" checkreturn="true" executable="./vendor/bin/phpmd">
+      <arg value="."/>
+      <arg value="text"/>
+      <arg file="phpmd.xml"/>
+    </exec>
+  </target>
+  <target name="phpunit" description="unit and functional tests">
+    <exec logoutput="true" checkreturn="true" executable="./vendor/bin/phpunit" />
+  </target>
+  <target name="phpstan" description="php static analyzer">
+    <exec logoutput="true" checkreturn="true" executable="./vendor/bin/phpstan">
+      <arg value="analyse"/>
+      <arg value="--configuration=phpstan.neon"/>
+      <arg value="."/>
+      <arg value="--level=4"/>
+      <arg value="--no-progress"/>
+    </exec>
+  </target>
+  <target name="all" depends="phpcs,lint,phpmd,phpstan,phpunit" description="Run all checkers" />
+</project>
