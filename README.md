@@ -16,7 +16,7 @@ $config = [
     'private_api_key' => 'MY_AFFIRM_PRIVATE_API_KEY',
     'is_sandbox' => true,
 ];
-$affirm = new \Affirm\Api\Client($config);
+$affirm = new \SaatchiArt\Affirm\Api\Client($config);
 
 // authorize an affirm payment by checkout token
 /** @var \stdClass $response decoded json from response */
