@@ -23,7 +23,7 @@
         "phing/phing": "^2.16"
     },
     "require": {
-      "guzzlehttp/guzzle": "^6.3",
+      "guzzlehttp/guzzle": "^7.0.1",
       "leocavalcante/shape": "dev-master"
     }
 }
